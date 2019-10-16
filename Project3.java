@@ -7,6 +7,7 @@ public class Project3<E> implements ListInterface<E> {
 	@Override
 	public void add(E element) {
 		// TODO Auto-generated method stub
+		//hello
 		
 	}
 
