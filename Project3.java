@@ -6,50 +6,47 @@ public class Project3<E> implements ListInterface<E> {
 
 	@Override
 	public void add(E element) {
-		// TODO Auto-generated method stub
-		//hello
-		
+		// add object to dll, then sort
 	}
 
 	@Override
 	public boolean remove(E element) {
-		// TODO Auto-generated method stub
+		// remove object from dll (don't need to re-sort)
 		return false;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
+		// return size of dll
 		return 0;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return size() == 0;
 	}
 
 	@Override
 	public boolean contains(E element) {
-		// TODO Auto-generated method stub
+		// return true if dll contains element
 		return false;
 	}
 
 	@Override
 	public E get(E element) {
-		// TODO Auto-generated method stub
+		// 
 		return null;
 	}
 
 	@Override
 	public void resetIterator() {
-		// TODO Auto-generated method stub
+		// 
 		
 	}
 
 	@Override
 	public E getNextItem() {
-		// TODO Auto-generated method stub
+		// 
 		return null;
 	}
 
