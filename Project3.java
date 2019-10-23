@@ -1,53 +1,46 @@
 package adts;
-
 import interfaces.ListInterface;
-
 public class Project3<E> implements ListInterface<E> {
-
 	@Override
 	public void add(E element) {
-		// search through existing dll, and insert at the correct location
+		// TODO Auto-generated method stub
+		//hello
+
 	}
 
 	@Override
 	public boolean remove(E element) {
-		// remove object from dll
+		// TODO Auto-generated method stub
 		return false;
 	}
-
 	@Override
 	public int size() {
-		// return size of dll
+		// TODO Auto-generated method stub
 		return 0;
 	}
-
 	@Override
 	public boolean isEmpty() {
-		return size() == 0;
-	}
-
-	@Override
-	public boolean contains(E element) {
-		// return true if dll contains element
+		// TODO Auto-generated method stub
 		return false;
 	}
-
+	@Override
+	public boolean contains(E element) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	@Override
 	public E get(E element) {
-		// 
+		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public void resetIterator() {
-		// 
+		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public E getNextItem() {
-		// 
+		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
