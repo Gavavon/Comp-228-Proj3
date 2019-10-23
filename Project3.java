@@ -6,12 +6,12 @@ public class Project3<E> implements ListInterface<E> {
 
 	@Override
 	public void add(E element) {
-		// add object to dll, then sort
+		// search through existing dll, and insert at the correct location
 	}
 
 	@Override
 	public boolean remove(E element) {
-		// remove object from dll (don't need to re-sort)
+		// remove object from dll
 		return false;
 	}
 
