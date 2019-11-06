@@ -3,15 +3,11 @@ import interfaces.ListInterface;
 import nodes.DLLNode;
 public class Project3<E> implements ListInterface<E> {
 	
-	/* 
-	   I created an empty DLLNode class on my end so I could start working on the add/remove/find methods.
-	   If you don't have a DLLNode class on your end, this wont compile, so just comment out whatever is making it fail.
-	   If you update the file on github please uncomment whatever you had commented before you push.
-	   Thanks! - Anthony
-	*/
-	
 	DLLNode<E> head;
 	int numElements = 0;
+	
+	boolean found;
+	DLLNode<E> location;
 	
 	// Adds elements to the DLL. Automatically adds them where they belong in the list (sorted).
 	@Override
@@ -39,6 +35,7 @@ public class Project3<E> implements ListInterface<E> {
 			}
 		}
 		
+	
 		if (!reachedEnd)
 		{
 			if (head == loop) head = newNode;
@@ -55,12 +52,31 @@ public class Project3<E> implements ListInterface<E> {
 			loop.setNext(newNode);
 		}
 		
+		numElements++;
+		
 	}
 
 	@Override
 	public boolean remove(E element) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		find(element);
+		if (found)
+		{
+			if (location.getPrev() != null)
+			{
+				location.getPrev().setNext(location.getNext());
+			}
+			else
+			{
+				head = location.getNext();
+			}
+			
+			if (location.getNext() != null)
+				location.getNext().setPrev(location.getPrev());
+			numElements--;
+		}
+		
+		return found;
 	}
 	@Override
 	public int size() {
@@ -95,28 +111,28 @@ public class Project3<E> implements ListInterface<E> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	//this Github hasnt seen a lot of activity so im also going to attempt the linear search -SS
-	//im very sorry if any of this is wrong in syntax or location i hope you can hack it up
-	//and use it where needed
-	//Method Desc: find() is our linear algorithm, it will simply check each element starting from the bottom until the value is found
-	@Override
-	public int find(int lArray[], int key) { // Note: This returns an int, but it needs to return an object of type 'E'.
-		//do i put int key here aswell or...? 
-	int x = lArray.length;
-	for (int i = 0; i < x; i++) {
-		if(lArray[i] == key)
-			return i;
+	
+	//Method Desc: find() is our linear algorithm, it will simply check each element starting from the head until the value is found
+	public void find(E target) { // Note: This returns an int, but it needs to return an object of type 'E'.
+		
+		found = false;
+		location = null;
+		
+		DLLNode<E> loop = head;
+		while (loop != null)
+		{
+			if (((Comparable)target).compareTo(loop.getInfo()) == 0)
+			{
+				found = true;
+				location = loop;
+				return;
+			}
+			loop = loop.getNext();
 		}
-		return -1;
+		
 	}
 	
-	/* I think we can use this for our linear array, or its grabage but you can just delete that :D
-	int found = find(lArray, key);
-	if(result == --1)
-		System.out.println('What youre looking for is not in this array!');
-	else 
-		System.out.println("What youre looking for is currently at index: " + found); 
-	*/
+	
 	//i think this is how the binary search algo goes but i think we need another variable and array
 	//one to check if there was a change in our first array and another array to hold our numbers
 	//if we use MAX_VALUE it will work but we'd have to run it again to find another variable
