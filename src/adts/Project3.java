@@ -103,13 +103,11 @@ public class Project3<E> implements ListInterface<E> {
 	
 	@Override
 	public E getNextItem() {
-		DLLNode currItem;
-		return (E) currItem.getNext().getInfo();
+		return (E) current.getNext().getInfo();
 	}
 	
 	public E getPrevItem(){
-		DLLNode currItem;
-		return (E) currItem.getPrev().getInfo();
+		return (E) current.getPrev().getInfo();
 	}
 	//this Github hasnt seen a lot of activity so im also going to attempt the linear search -SS
 	//im very sorry if any of this is wrong in syntax or location i hope you can hack it up
