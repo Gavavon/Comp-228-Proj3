@@ -11,6 +11,8 @@ public class Project3<E> implements ListInterface<E> {
 	*/
 	
 	DLLNode<E> head;
+	DLLNode<E> tail;
+	DLLNode<E> current;
 	int numElements = 0;
 	
 	// Adds elements to the DLL. Automatically adds them where they belong in the list (sorted).
