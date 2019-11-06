@@ -90,14 +90,20 @@ public class Project3<E> implements ListInterface<E> {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	/*
+	 * These two iterator functions are very simple, and just need to be fed the right current node to work,
+	 * once that has been implemented.
+	 * -Thomas
+	 */
 	@Override
 	public E getNextItem() {
-		DLLNode currItem;
+		DLLNode currItem; //Placeholder for when the global current node is added
 		return (E) currItem.getNext().getInfo();
 	}
 	
 	public E getPrevItem(){
-		DLLNode currItem;
+		DLLNode currItem; //Placeholder for when the global current node is added
 		return (E) currItem.getPrev().getInfo();
 	}
 	//this Github hasnt seen a lot of activity so im also going to attempt the linear search -SS
