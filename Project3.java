@@ -11,7 +11,7 @@ public class Project3<E> implements ListInterface<E> {
 	*/
 	
 	DLLNode<E> head;
-	
+	int numElements = 0;
 	
 	// Adds elements to the DLL. Automatically adds them where they belong in the list (sorted).
 	@Override
@@ -65,11 +65,14 @@ public class Project3<E> implements ListInterface<E> {
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return numElements;
 	}
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
+		if(head == null){
+			return true;
+		}
 		return false;
 	}
 	@Override
