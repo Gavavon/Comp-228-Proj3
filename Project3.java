@@ -104,12 +104,24 @@ public class Project3<E> implements ListInterface<E> {
 	@Override
 	public void resetIterator() {
 		// TODO Auto-generated method stub
-		
+		E next = current.getInfo();
+		next.getNextItem() = head.getInfo();
+		current = head;
 	}
+	
+	public void resetBackIterator() {
+		E next = current.getInfo();
+		next.getPrevItem() = tail.getInfo();
+		current =tail;
+	}
+	
 	@Override
 	public E getNextItem() {
-		// TODO Auto-generated method stub
-		return null;
+		return (E) current.getNext().getInfo();
+	}
+	
+	public E getPrevItem(){
+		return (E) current.getPrev().getInfo();
 	}
 	
 	//Method Desc: find() is our linear algorithm, it will simply check each element starting from the head until the value is found
@@ -161,4 +173,30 @@ public class Project3<E> implements ListInterface<E> {
 		return index;
 		}
 	}
+public String toString() {
+	        StringBuilder sb = new StringBuilder("[\n");
+	        DLLNode<E> current = head;
+	        while (current != null) {
+	        sb.append(current.getInfo().toString()).append("\n");
+	        current = current.getNext();
+	        }
+	        sb.append("]");
+	        return sb.toString();
+	        }
+
+	// create string to print from tail to head
+	public String gnirtSot() {
+	        StringBuilder sb = new StringBuilder("[\n");
+	        DLLNode<E> current = tail;
+	        while (current != head) {
+	        sb.append(current.getInfo().toString()).append("\n");
+	        current = current.getPrev();
+
+	        if (current == head) {
+	        sb.append(current.getInfo().toString()).append("\n");
+	        }
+	        }
+	        sb.append("]");
+	        return sb.toString();
+	        }
 }
