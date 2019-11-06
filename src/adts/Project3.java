@@ -88,22 +88,25 @@ public class Project3<E> implements ListInterface<E> {
 	@Override
 	public void resetIterator() {
 		// TODO Auto-generated method stub
-		
+		E next = current.getInfo();
+		next.getNextItem() = head.getInfo();
+		current = head;
 	}
 	
-	/*
-	 * These two iterator functions are very simple, and just need to be fed the right current node to work,
-	 * once that has been implemented.
-	 * -Thomas
-	 */
+	public void resetBackIterator() {
+		E next = current.getInfo();
+		next.getPrevItem() = tail.getInfo();
+		current =tail;
+	}
+	
 	@Override
 	public E getNextItem() {
-		DLLNode currItem; //Placeholder for when the global current node is added
+		DLLNode currItem;
 		return (E) currItem.getNext().getInfo();
 	}
 	
 	public E getPrevItem(){
-		DLLNode currItem; //Placeholder for when the global current node is added
+		DLLNode currItem;
 		return (E) currItem.getPrev().getInfo();
 	}
 	//this Github hasnt seen a lot of activity so im also going to attempt the linear search -SS
