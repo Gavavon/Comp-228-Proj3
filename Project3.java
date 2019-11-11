@@ -26,7 +26,7 @@ public class Project3<E> implements ListInterface<E> {
 			tail = newNode;
 			numElements++;
 			return;
-			needNewFind2Arrays = true;
+			
 		}
 		
 		DLLNode<E> loop = head;
@@ -62,8 +62,9 @@ public class Project3<E> implements ListInterface<E> {
 			tail = newNode;
 		}
 		
-		needNewFind2Arrays = true;
+		
 		numElements++;
+		needNewFind2Arrays = true;
 	}
 	
 	
