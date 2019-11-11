@@ -4,6 +4,7 @@ import nodes.DLLNode;
 public class Project3<E> implements ListInterface<E> {
 	
 	DLLNode<E> head;
+	DLLNode<E> tail;
 	int numElements = 0;
 	
 	boolean found;
@@ -17,6 +18,7 @@ public class Project3<E> implements ListInterface<E> {
 		if (head == null)
 		{
 			head = newNode;
+			tail = newNode;
 			return;
 		}
 		
@@ -50,6 +52,7 @@ public class Project3<E> implements ListInterface<E> {
 		{
 			newNode.setPrev(loop);
 			loop.setNext(newNode);
+			tail = newNode;
 		}
 		
 		numElements++;
@@ -155,7 +158,7 @@ public class Project3<E> implements ListInterface<E> {
 	//We then split the array in half and check each end, if no value is found in one end it will be discarded and we repeat
 	//if we let this run we will get our MAX_VALUE/key that we were searching for, or we get nill
 	
-	@Override
+	
 	public int find2(int[] bArray, int key, int low, int high) { // Note: This returns an int, but it needs to return an object of type 'E'.
 		int index = Integer.MAX_VALUE;
 		
@@ -171,9 +174,9 @@ public class Project3<E> implements ListInterface<E> {
 			}
 		}
 		return index;
-		}
 	}
-public String toString() {
+	
+	public String toString() {
 	        StringBuilder sb = new StringBuilder("[\n");
 	        DLLNode<E> current = head;
 	        while (current != null) {
