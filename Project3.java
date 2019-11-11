@@ -7,6 +7,7 @@ public class Project3<E> implements ListInterface<E> {
 	protected DLLNode<E> tail;
 	protected int numElements = 0;
 	protected boolean needNewFind2Arrays;
+	protected E[] arrayForFind2;
 	protected boolean found2;
 	protected boolean found;
 	protected DLLNode<E> location;
@@ -196,14 +197,14 @@ public class Project3<E> implements ListInterface<E> {
 	 public  void find2(E element) {
 	        found2 = false;
 
-	        if (size < 1) return;
+	        if (numElements < 1) return;
 
 	        if (needNewFind2Arrays) {
 
-	            arrayForFind2 = (E[]) new Object[size];
+	            arrayForFind2 = (E[]) new Object[numElements];
 	            DLLNode<E> current = head;
 
-	            for (int i=0; i < size; i++) {
+	            for (int i=0; i < numElements; i++) {
 	                arrayForFind2[i] = current.getInfo();
 	                current = current.getNext();
 	            }
@@ -211,7 +212,7 @@ public class Project3<E> implements ListInterface<E> {
 	        }
 
 	        int low = 0;
-	        int high = size - 1;
+	        int high = numElements - 1;
 	        while (high >= low) {
 	            int mid = (low + high) / 2;
 	            if (((Comparable)element).compareTo(arrayForFind2[mid]) == 0) {
