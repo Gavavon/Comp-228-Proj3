@@ -19,6 +19,7 @@ public class Project3<E> implements ListInterface<E> {
 		{
 			head = newNode;
 			tail = newNode;
+			numElements++;
 			return;
 		}
 		
@@ -65,7 +66,7 @@ public class Project3<E> implements ListInterface<E> {
 		find(element);
 		if (found)
 		{
-			if (location.getPrev() != null)
+			if (location != head)
 			{
 				location.getPrev().setNext(location.getNext());
 			}
@@ -74,8 +75,15 @@ public class Project3<E> implements ListInterface<E> {
 				head = location.getNext();
 			}
 			
-			if (location.getNext() != null)
+			if (location != tail)
+			{
 				location.getNext().setPrev(location.getPrev());
+			}
+			else
+			{
+				tail = location.getPrev();
+			}
+			
 			numElements--;
 		}
 		
