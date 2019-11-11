@@ -108,12 +108,17 @@ public class Project3<E> implements ListInterface<E> {
 	}
 	@Override
 	public boolean contains(E element) {
-		// TODO Auto-generated method stub
-		return false;
+		find(element);
+		return(found);
 	}
+	
+	//We
 	@Override
 	public E get(E element) {
-		// TODO Auto-generated method stub
+		find (element);
+		if (found) {
+			return location.getInfo();
+		}
 		return null;
 	}
 	@Override
