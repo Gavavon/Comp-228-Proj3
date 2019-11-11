@@ -151,8 +151,9 @@ public class Project3<E> implements ListInterface<E> {
 		E temp;
 		 if(frontPointer.getNext() == null) {
 			//frontPointer = frontPointer.getNext();
-			 frontPointer = head;
+			 
 			 temp = frontPointer.getInfo();
+			 frontPointer = head;
 			
 		 } else {
 			 temp = frontPointer.getInfo();
@@ -165,8 +166,9 @@ public class Project3<E> implements ListInterface<E> {
 		E temp;
 		if(backPointer.getPrev() == null) {
 			//backPointer = backPointer.getPrev();
-			backPointer = tail;
+			
 			temp = backPointer.getInfo();
+			backPointer = tail;
 			 
 		 } else {
 			
