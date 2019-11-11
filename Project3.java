@@ -9,6 +9,8 @@ public class Project3<E> implements ListInterface<E> {
 	
 	boolean found;
 	DLLNode<E> location;
+	DLLNode<E> frontPointer;
+	DLLNode<E> backPointer;
 	
 	// Adds elements to the DLL. Automatically adds them where they belong in the list (sorted).
 	// Properly handles special cases (list is empty, adding to beginning or end, etc)
@@ -124,24 +126,38 @@ public class Project3<E> implements ListInterface<E> {
 	@Override
 	public void resetIterator() {
 		// TODO Auto-generated method stub
-		E next = current.getInfo();
-		next.getNextItem() = head.getInfo();
-		current = head;
+		frontPointer= head;
 	}
 	
 	public void resetBackIterator() {
-		E next = current.getInfo();
-		next.getPrevItem() = tail.getInfo();
-		current =tail;
+		backPointer = tail;
 	}
 	
 	@Override
 	public E getNextItem() {
-		return (E) current.getNext().getInfo();
+		E temp;
+		 if(frontPointer.getNext() == tail) {
+			frontPointer = frontPointer.getNext();
+			 temp = frontPointer.getInfo();
+			 frontPointer = head;
+		 } else {
+			 frontPointer= frontPointer.getNext();
+			 temp = frontPointer.getInfo();
+		 }
+		return temp;
 	}
 	
 	public E getPrevItem(){
-		return (E) current.getPrev().getInfo();
+		E temp;
+		if(backPointer.getPrev() == head) {
+			backPointer = backPointer.getPrev();
+			 temp = backPointer.getInfo();
+			 backPointer = tail;
+		 } else {
+			 backPointer = backPointer.getPrev();
+			 temp = backPointer.getInfo();
+		 }
+		return temp;
 	}
 	
 	// (Linear)
