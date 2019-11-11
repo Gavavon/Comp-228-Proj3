@@ -149,10 +149,11 @@ public class Project3<E> implements ListInterface<E> {
 	@Override
 	public E getNextItem() {
 		E temp;
-		 if(frontPointer.getNext() == tail) {
-			frontPointer = frontPointer.getNext();
-			 temp = frontPointer.getInfo();
+		 if(frontPointer.getNext() == null) {
+			//frontPointer = frontPointer.getNext();
 			 frontPointer = head;
+			 temp = frontPointer.getInfo();
+			
 		 } else {
 			 frontPointer= frontPointer.getNext();
 			 temp = frontPointer.getInfo();
