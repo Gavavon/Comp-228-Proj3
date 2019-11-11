@@ -25,6 +25,7 @@ public class Project3<E> implements ListInterface<E> {
 			head = newNode;
 			tail = newNode;
 			numElements++;
+			needNewFind2Arrays = true;
 			return;
 			
 		}
