@@ -3,14 +3,15 @@ import interfaces.ListInterface;
 import nodes.DLLNode;
 public class Project3<E> implements ListInterface<E> {
 	
-	DLLNode<E> head;
-	DLLNode<E> tail;
-	int numElements = 0;
-	
-	boolean found;
-	DLLNode<E> location;
-	DLLNode<E> frontPointer;
-	DLLNode<E> backPointer;
+	protected DLLNode<E> head;
+	protected DLLNode<E> tail;
+	protected int numElements = 0;
+	protected boolean needNewFind2Arrays;
+	protected boolean found2;
+	protected boolean found;
+	protected DLLNode<E> location;
+	protected DLLNode<E> frontPointer;
+	protected DLLNode<E> backPointer;
 	
 	// Adds elements to the DLL. Automatically adds them where they belong in the list (sorted).
 	// Properly handles special cases (list is empty, adding to beginning or end, etc)
@@ -24,6 +25,7 @@ public class Project3<E> implements ListInterface<E> {
 			tail = newNode;
 			numElements++;
 			return;
+			needNewFind2Arrays = true;
 		}
 		
 		DLLNode<E> loop = head;
@@ -59,8 +61,8 @@ public class Project3<E> implements ListInterface<E> {
 			tail = newNode;
 		}
 		
+		needNewFind2Arrays = true;
 		numElements++;
-		
 	}
 	
 	
@@ -91,6 +93,7 @@ public class Project3<E> implements ListInterface<E> {
 			}
 			
 			numElements--;
+			needNewFind2Arrays = true;
 		}
 		
 		return found;
@@ -123,9 +126,17 @@ public class Project3<E> implements ListInterface<E> {
 		}
 		return null;
 	}
+	
+	public E get2(E element) {
+		find2(element);
+		if (found2) {
+			return location.getInfo();
+		}
+		return null;
+	}
+		
 	@Override
 	public void resetIterator() {
-		// TODO Auto-generated method stub
 		frontPointer= head;
 	}
 	
@@ -182,33 +193,41 @@ public class Project3<E> implements ListInterface<E> {
 		
 	}
 	
-	
-	//i think this is how the binary search algo goes but i think we need another variable and array
-	//one to check if there was a change in our first array and another array to hold our numbers
-	//if we use MAX_VALUE it will work but we'd have to run it again to find another variable
-	//need to add a counter to this loop, status update variable, to show change
-	
-	//Method Desc: We have our high and low set for our array, the key is the value/element we are searching for in our array
-	//Mid is = the low+high/2 which should have us sitting pretty in the center of our array (should be sorted) 
-	//We then split the array in half and check each end, if no value is found in one end it will be discarded and we repeat
-	//if we let this run we will get our MAX_VALUE/key that we were searching for, or we get nill
-	
-	
-	public int find2(int[] bArray, int key, int low, int high) { // Note: This returns an int, but it needs to return an object of type 'E'.
-		int index = Integer.MAX_VALUE;
-		
-		while (low <= high) {
-			int mid = (low + high) / 2;
-			if (bArray[mid] < key) {
-				low = mid +1;
-			} else if (bArray[mid] > key) {
-				high = mid - 1;
-			} else if (bArray[mid] == key) {
-				index = mid;
-				break;
-			}
-		}
-		return index;
+	 public  void find2(E element) {
+	        found2 = false;
+
+	        if (size < 1) return;
+
+	        if (needNewFind2Arrays) {
+
+	            arrayForFind2 = (E[]) new Object[size];
+	            DLLNode<E> current = head;
+
+	            for (int i=0; i < size; i++) {
+	                arrayForFind2[i] = current.getInfo();
+	                current = current.getNext();
+	            }
+	            needNewFind2Arrays = false;
+	        }
+
+	        int low = 0;
+	        int high = size - 1;
+	        while (high >= low) {
+	            int mid = (low + high) / 2;
+	            if (((Comparable)element).compareTo(arrayForFind2[mid]) == 0) {
+	                found2 = true;
+	                return;
+	            }
+	            else {
+	                if (((Comparable)element).compareTo(arrayForFind2[mid]) < 0) {
+	                    high = mid - 1;
+	                }
+	                else {
+	                    low = mid + 1;
+	                }
+	            }
+	        }
+	    }
 	}
 	
 	public String toString() {
