@@ -155,21 +155,23 @@ public class Project3<E> implements ListInterface<E> {
 			 temp = frontPointer.getInfo();
 			
 		 } else {
-			 frontPointer= frontPointer.getNext();
 			 temp = frontPointer.getInfo();
+			 frontPointer= frontPointer.getNext();
 		 }
 		return temp;
 	}
 	
 	public E getPrevItem(){
 		E temp;
-		if(backPointer.getPrev() == head) {
-			backPointer = backPointer.getPrev();
-			 temp = backPointer.getInfo();
-			 backPointer = tail;
+		if(backPointer.getPrev() == null) {
+			//backPointer = backPointer.getPrev();
+			backPointer = tail;
+			temp = backPointer.getInfo();
+			 
 		 } else {
-			 backPointer = backPointer.getPrev();
+			
 			 temp = backPointer.getInfo();
+			 backPointer = backPointer.getPrev();
 		 }
 		return temp;
 	}
