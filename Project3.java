@@ -11,6 +11,7 @@ public class Project3<E> implements ListInterface<E> {
 	DLLNode<E> location;
 	
 	// Adds elements to the DLL. Automatically adds them where they belong in the list (sorted).
+	// Properly handles special cases (list is empty, adding to beginning or end, etc)
 	@Override
 	public void add(E element){
 		DLLNode<E> newNode = new DLLNode<E>(element);
@@ -59,7 +60,10 @@ public class Project3<E> implements ListInterface<E> {
 		numElements++;
 		
 	}
-
+	
+	
+	// Finds the first instance of an element in the list and removes it (properly sets the .next and .prev of adjacent nodes)
+	// Properly handles special cases (removing the head or tail of the list)
 	@Override
 	public boolean remove(E element) {
 		
@@ -135,8 +139,10 @@ public class Project3<E> implements ListInterface<E> {
 		return (E) current.getPrev().getInfo();
 	}
 	
-	//Method Desc: find() is our linear algorithm, it will simply check each element starting from the head until the value is found
-	public void find(E target) { // Note: This returns an int, but it needs to return an object of type 'E'.
+	// (Linear)
+	// Iterates through the list using .getNext() until an element that matches the target is found.
+	// If no element is found, 'found' instance var = false.
+	public void find(E target) {
 		
 		found = false;
 		location = null;
