@@ -108,7 +108,6 @@ public class Project3<E> implements ListInterface<E> {
 	}
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
 		if(head == null){
 			return true;
 		}
@@ -231,7 +230,6 @@ public class Project3<E> implements ListInterface<E> {
 	            }
 	        }
 	    }
-	}
 	
 	public String toString() {
 	        StringBuilder sb = new StringBuilder("[\n");
