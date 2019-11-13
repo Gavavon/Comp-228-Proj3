@@ -1,7 +1,7 @@
 package apps;
 
 import adts.Project3;
-import videoGame.VideoGame;
+//import videoGame.VideoGame;
 
 public class SystemTest {
 	
@@ -41,7 +41,7 @@ public class SystemTest {
 		//Test the get when it is on the list
 		String getTheLemur= myList.get("lemur");
 		System.out.println("Grab the lemur when it is there: "+getTheLemur);
-		
+
 		//Test the isEmpty
 		System.out.println("Is the list empty?: "+ myList.isEmpty());
 
@@ -77,7 +77,7 @@ public class SystemTest {
 		
 		//Can't seem to get a while loop to work here. Am I missing something?
 		
-		while(i=0; i < myList.size()*2; i++) {
+		for(i=0; i <  (myList.size()*2); i++) {
 			System.out.println(myList.getNextItem());
 		}
 		
@@ -85,6 +85,7 @@ public class SystemTest {
 		System.out.println(myList.getNextItem());
 		System.out.println(myList.getNextItem());
 		myList.resetIterator();
+		myList.resetBackIterator();
 		System.out.println(myList.getNextItem());
 		System.out.println(myList.getPrevItem());
 		System.out.println(myList.getPrevItem());
