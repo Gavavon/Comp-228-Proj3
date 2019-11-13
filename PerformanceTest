@@ -1,0 +1,45 @@
+package apps;
+
+import adts.Project3;
+
+public class perfomanceTest {
+
+	public static void main(String[] args) {
+		
+		// Antonio Martinez
+		// This is a program to search for a specific number in a list of 30,000 randomly generated integers
+		// The program outputs 10 total integers along with the time in nanoseconds that it took to find them 
+		// 5 numbers were located using a linear search and 5 numbers were located using a binary search
+		
+		int size = 30000;
+		Project3<Integer> list = new Project3<>();
+		
+		long StartTime = System.nanoTime();
+		long EndTime = System.nanoTime();
+	
+		System.out.println("List of " + size + " random numbers");
+		
+		for (int i = 0; i < 5; i++) {
+			int num = (int) (Math.random() * size);
+			StartTime = System.nanoTime();
+			list.find(num);
+			EndTime = System.nanoTime();
+			
+			System.out.println("Time in microseconds to search for random number " + num + " using a linear search: " + (EndTime - StartTime) + " nanoseconds");
+		}
+		
+		System.out.println();
+	    System.out.println("List of " + size + " random numbers");
+	    
+	    for (int i = 0; i < 5; i++) {
+	    	int num = (int) (Math.random() * size);
+	    	StartTime = System.nanoTime();
+	    	list.find2(num);
+	    	EndTime = System.nanoTime();
+	    	
+	    	System.out.println("Time in microseconds to search for random number " + num + " using a binary search: " + (EndTime - StartTime) + " nanoseconds");
+	    }
+	    
+	}
+
+}
