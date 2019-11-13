@@ -13,7 +13,10 @@ public class perfomanceTest {
 		
 		int size = 30000;
 		Project3<Integer> list = new Project3<>();
-		
+		for (int i = 0; i < size; i++) {
+            		list.add(i);
+        	}
+			
 		long StartTime = System.nanoTime();
 		long EndTime = System.nanoTime();
 	
