@@ -25,7 +25,7 @@ public class perfomanceTest {
 			list.find(num);
 			EndTime = System.nanoTime();
 			
-			System.out.println("Time in microseconds to search for random number " + num + " using a linear search: " + (EndTime - StartTime) + " nanoseconds");
+			System.out.println("Time in nanoseconds to search for random number " + num + " using a linear search: " + (EndTime - StartTime) + " nanoseconds");
 		}
 		
 		System.out.println();
@@ -37,7 +37,7 @@ public class perfomanceTest {
 	    	list.find2(num);
 	    	EndTime = System.nanoTime();
 	    	
-	    	System.out.println("Time in microseconds to search for random number " + num + " using a binary search: " + (EndTime - StartTime) + " nanoseconds");
+	    	System.out.println("Time in nanoseconds to search for random number " + num + " using a binary search: " + (EndTime - StartTime) + " nanoseconds");
 	    }
 	    
 	}
