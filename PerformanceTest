@@ -8,7 +8,7 @@ public class perfomanceTest {
 		
 		// Antonio Martinez
 		// This is a program to search for a specific number in a list of 30,000 randomly generated integers
-		// The program outputs 10 total integers along with the time in nanoseconds that it took to find them 
+		// The program outputs 10 total integers along with the time in microseconds that it took to find them 
 		// 5 numbers were located using a linear search and 5 numbers were located using a binary search
 		
 		int size = 30000;
@@ -28,7 +28,7 @@ public class perfomanceTest {
 			list.find(num);
 			EndTime = System.nanoTime();
 			
-			System.out.println("Time in nanoseconds to search for random number " + num + " using a linear search: " + (EndTime - StartTime) + " nanoseconds");
+			System.out.println("Time in microseconds to search for random number " + num + " using a linear search: " + (EndTime - StartTime) / 1000 + " microseconds");
 		}
 		
 		System.out.println();
@@ -40,7 +40,7 @@ public class perfomanceTest {
 	    	list.find2(num);
 	    	EndTime = System.nanoTime();
 	    	
-	    	System.out.println("Time in nanoseconds to search for random number " + num + " using a binary search: " + (EndTime - StartTime) + " nanoseconds");
+	    	System.out.println("Time in microseconds to search for random number " + num + " using a binary search: " + (EndTime - StartTime) / 1000 + " microseconds");
 	    }
 	    
 	}
