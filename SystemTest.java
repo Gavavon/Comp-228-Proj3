@@ -1,7 +1,7 @@
 package apps;
 
 import adts.Project3;
-//import videoGame.VideoGame;
+import videoGame.VideoGame;
 
 public class SystemTest {
 	
